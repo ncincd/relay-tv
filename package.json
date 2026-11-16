@@ -1,0 +1,26 @@
+{
+  "name": "relay-tizen-tv",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server.js",
+    "package": "node scripts/sign-and-package.cjs",
+    "deploy": "npm run build && node scripts/sign-and-package.cjs && /Users/macbookpro/tizentv-tools/sdb/sdb -s 10.168.135.115:26101 push RelayTV.wgt /home/owner/share/tmp/sdk_tools/tmp/ && /Users/macbookpro/tizentv-tools/sdb/sdb -s 10.168.135.115:26101 shell 0 vd_appinstall Xk489N1Qre.RelayTV /home/owner/share/tmp/sdk_tools/tmp/RelayTV.wgt && /Users/macbookpro/tizentv-tools/sdb/sdb -s 10.168.135.115:26101 shell 0 execute Xk489N1Qre.RelayTV",
+    "launch": "/Users/macbookpro/tizentv-tools/sdb/sdb -s 10.168.135.115:26101 shell 0 execute Xk489N1Qre.RelayTV"
+  },
+  "dependencies": {
+    "hls.js": "^1.5.17",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-legacy": "^5.4.2",
+    "@vitejs/plugin-react": "^4.3.3",
+    "terser": "^5.36.0",
+    "vite": "^5.4.10"
+  }
+}
